@@ -1,0 +1,83 @@
+.trading-card {
+  background: linear-gradient(to bottom, #0D1031 0%, #1F2566 50%, #0D1031 100%);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  width: 335px;
+  height: 180px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+.trading-card-header {
+  margin-bottom: auto;
+}
+
+.trading-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.trading-card-title {
+  font-size: 14px;
+  color: white;
+  margin: 0;
+  font-weight: 400;
+}
+
+.trading-card-multiplier {
+  font-weight: 400;
+}
+
+.trading-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.trading-card-main {
+  flex: 1;
+}
+
+.trading-card-asset-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.trading-card-asset {
+  font-size: 32px;
+  font-weight: bold;
+  color: #00ff88;
+  line-height: 1;
+}
+
+.trading-card-type {
+  font-size: 16px;
+  color: white;
+  font-weight: 500;
+}
+
+.trading-card-character {
+  flex-shrink: 0;
+  margin-left: 20px;
+}
+
+.character-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+.trading-card.long .trading-card-asset {
+  color: #00ff88;
+}
+
+.trading-card.short .trading-card-asset {
+  color: #ff4757;
+}

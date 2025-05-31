@@ -1,0 +1,174 @@
+/* App Styles */
+.App {
+  min-height: 100vh;
+  background: url(/background.svg) no-repeat center center;
+  background-size: contain;
+  color: white;
+}
+
+.main-content {
+  padding-top: 80px; /* Header yüksekliği için */
+}
+
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.header-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  gap: 6rem;
+}
+
+.navigation {
+  flex: none;
+}
+
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+  max-width: 60px;
+}
+
+.logo-placeholder {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #6b73ff 0%, #9b59b6 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Navigation Styles */
+.navigation-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 6rem;
+}
+
+.navigation-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navigation-link:hover {
+  color: white;
+}
+
+/* Hero Section Styles */
+.hero-section {
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+  width: 100%;
+}
+
+.hero-container {
+  width: 100%;
+  max-width: none;
+}
+
+.hero-content {
+  width: 100%;
+}
+
+.hero-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, #8B8AFF 25%, #FFFFFF 50%, #8B8AFF 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-description {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cards-container {
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  justify-items: center;
+  width: 100%;
+}
+
+.multiplier-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.multiplier-value.green {
+  color: #4ade80;
+}
+
+.multiplier-value.orange {
+  color: #fb923c;
+}
+
+.type-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.character-placeholder {
+  font-size: 3rem;
+}
+
+.card-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-container {
+    padding: 1rem 1rem;
+  }
+  
+  .navigation-list {
+    gap: 1rem;
+  }
+  
+  .hero-section {
+    padding: 4rem 1rem 3rem;
+  }
+  
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-description {
+    font-size: 18px;
+  }
+  
+  .trading-cards-section {
+    padding: 3rem 1rem;
+  }
+  
+}

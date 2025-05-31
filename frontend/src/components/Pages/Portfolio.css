@@ -1,0 +1,236 @@
+/* PORTFOLIO PAGE STYLES */
+.portfolio-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: calc(100vh - 80px);
+}
+
+/* Main Content Area */
+.portfolio-main {
+  display: grid;
+  grid-template-columns: 600px 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: start;
+}
+
+/* Left Side - Portfolio Cards */
+.portfolio-left {
+  height: fit-content;
+}
+
+/* Right Side - Chart */
+.portfolio-right {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Portfolio Cards Grid */
+.portfolio-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.portfolio-card {
+  background: radial-gradient(circle at center, rgba(18, 22, 69, 0.4) 0%, rgba(10, 13, 40, 0.3) 70%);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 300px;
+}
+
+.portfolio-label {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.portfolio-amount {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.chart-container {
+  background: radial-gradient(circle at center, rgba(18, 22, 69, 0.4) 0%, rgba(10, 13, 40, 0.3) 70%);
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+}
+
+.chart-widget {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tradingview-widget-container {
+  border-radius: 8px;
+  overflow: hidden;
+  flex: 1;
+  min-height: 240px;
+}
+
+/* Positions Section */
+.positions-container {
+  background: radial-gradient(circle at center, rgba(18, 22, 69, 0.4) 0%, rgba(10, 13, 40, 0.3) 70%);
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.positions-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #333;
+}
+
+.positions-header h2 {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Table Styles */
+.positions-table {
+  width: 100%;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #333;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.header-cell {
+  color: #888;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.vault-header {
+  color: #3b82f6;
+}
+
+.apr-header {
+  color: #3b82f6;
+}
+
+.tvl-header {
+  color: #3b82f6;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #333;
+  transition: background-color 0.3s ease;
+}
+
+.table-row:hover {
+  background: rgba(114, 53, 229, 0.08);
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-cell {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.vault-name {
+  font-weight: 500;
+}
+
+.apr-value {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.tvl-value {
+  font-weight: 500;
+}
+
+.tvl-percentage {
+  color: #888;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .portfolio-main {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-page {
+    padding: 1rem;
+  }
+
+  .portfolio-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .table-header,
+  .table-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .header-cell,
+  .table-cell {
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+  
+  .header-cell::before,
+  .table-cell::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #888;
+  }
+
+  .positions-header {
+    padding: 1rem;
+  }
+
+  .positions-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .card-amount {
+    font-size: 1.5rem;
+  }
+
+  .chart-header {
+    padding: 1rem;
+  }
+
+  .chart-widget {
+    padding: 0.5rem;
+  }
+} 

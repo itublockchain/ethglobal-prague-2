@@ -1,0 +1,178 @@
+/* VAULTS PAGE STYLES */
+.vaults-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: calc(100vh - 80px);
+}
+
+/* Total Value Locked Card */
+.tvl-card {
+  background: radial-gradient(circle at center, rgba(18, 22, 69, 0.4) 0%, rgba(10, 13, 40, 0.3) 70%);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  max-width: 300px;
+}
+
+.tvl-label {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tvl-amount {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+/* Vaults Table Container */
+.vaults-table-container {
+  background: radial-gradient(circle at center, rgba(18, 22, 69, 0.4) 0%, rgba(10, 13, 40, 0.3) 70%);
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Tab Navigation */
+.vaults-tabs {
+  display: flex;
+  border-bottom: 1px solid #333;
+}
+
+.tab-button {
+  background: transparent;
+  border: none;
+  color: #888;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.tab-button.active {
+  color: #fff;
+  border-bottom-color: #3b82f6;
+}
+
+.tab-button:hover {
+  color: #fff;
+}
+
+/* Table Styles */
+.vaults-table {
+  width: 100%;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #333;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.header-cell {
+  color: #888;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.apr-header {
+  color: #3b82f6;
+}
+
+.sort-arrow {
+  color: #3b82f6;
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+}
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #333;
+  transition: background-color 0.3s ease;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-cell {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.vault-name {
+  font-weight: 500;
+}
+
+.apr-value {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.tvl-value {
+  font-weight: 500;
+}
+
+.tvl-percentage {
+  color: #888;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vaults-page {
+    padding: 1rem;
+  }
+  
+  .table-header,
+  .table-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .header-cell,
+  .table-cell {
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+  
+  .header-cell::before,
+  .table-cell::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #888;
+  }
+
+  .vaults-tabs {
+    flex-direction: column;
+  }
+
+  .tab-button {
+    text-align: left;
+    border-bottom: 1px solid #333;
+    border-right: none;
+  }
+
+  .tab-button.active {
+    border-bottom-color: #333;
+    border-left: 2px solid #3b82f6;
+  }
+} 
