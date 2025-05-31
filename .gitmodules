@@ -1,0 +1,3 @@
+[submodule "hedera-agent-kit"]
+	path = hedera-agent-kit
+	url = https://github.com/hashgraph-online/hedera-agent-kit.git
