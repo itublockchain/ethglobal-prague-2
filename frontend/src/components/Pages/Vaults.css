@@ -8,7 +8,11 @@
 
 /* Total Value Locked Card */
 .tvl-card {
-  background: radial-gradient(circle at center, rgba(18, 22, 69, 0.4) 0%, rgba(10, 13, 40, 0.3) 70%);
+  background: radial-gradient(
+    circle at center,
+    rgba(18, 22, 69, 0.4) 0%,
+    rgba(10, 13, 40, 0.3) 70%
+  );
   border: 1px solid #333;
   border-radius: 12px;
   padding: 2rem;
@@ -32,7 +36,11 @@
 
 /* Vaults Table Container */
 .vaults-table-container {
-  background: radial-gradient(circle at center, rgba(18, 22, 69, 0.4) 0%, rgba(10, 13, 40, 0.3) 70%);
+  background: radial-gradient(
+    circle at center,
+    rgba(18, 22, 69, 0.4) 0%,
+    rgba(10, 13, 40, 0.3) 70%
+  );
   border: 1px solid #333;
   border-radius: 12px;
   overflow: hidden;
@@ -98,17 +106,36 @@
   margin-left: 0.5rem;
   font-size: 0.8rem;
 }
+
 .table-row {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: 1rem;
   padding: 1.5rem 2rem;
   border-bottom: 1px solid #333;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .table-row:last-child {
   border-bottom: none;
+}
+
+/* Clickable Row Styles */
+.clickable-row {
+  cursor: pointer;
+}
+
+.clickable-row:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateX(3px);
+}
+
+/* Real vs Mock Vault Styling */
+.real-vault {
+}
+
+.mock-vault {
+  opacity: 0.8;
 }
 
 .table-cell {
@@ -120,6 +147,21 @@
 
 .vault-name {
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Mock Badge */
+.mock-badge {
+  background: #f59e0b;
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .apr-value {
@@ -141,19 +183,19 @@
   .vaults-page {
     padding: 1rem;
   }
-  
+
   .table-header,
   .table-row {
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
-  
+
   .header-cell,
   .table-cell {
     justify-content: space-between;
     padding: 0.5rem 0;
   }
-  
+
   .header-cell::before,
   .table-cell::before {
     content: attr(data-label);
@@ -175,4 +217,10 @@
     border-bottom-color: #333;
     border-left: 2px solid #3b82f6;
   }
-} 
+
+  .clickable-row:hover {
+    transform: none;
+    border-left: none;
+    background: rgba(59, 130, 246, 0.15);
+  }
+}

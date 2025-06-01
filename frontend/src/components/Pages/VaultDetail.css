@@ -1,0 +1,352 @@
+/* VAULT DETAIL PAGE STYLES */
+.vault-detail-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: calc(100vh - 80px);
+  color: #fff;
+}
+
+/* Split Layout */
+.vault-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Stats Grid - Now 2x2 */
+.vault-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background: radial-gradient(
+    circle at center,
+    rgba(18, 22, 69, 0.4) 0%,
+    rgba(10, 13, 40, 0.3) 70%
+  );
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+.stat-label {
+  color: #888;
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.stat-value.apr {
+  color: #10b981;
+}
+
+.stat-value.contract {
+  font-size: 1rem;
+  font-family: "Courier New", monospace;
+  color: #3b82f6;
+}
+
+/* Main Content */
+.vault-content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Vault Info Section - Left Half */
+.vault-info-section {
+  background: radial-gradient(
+    circle at center,
+    rgba(18, 22, 69, 0.4) 0%,
+    rgba(10, 13, 40, 0.3) 70%
+  );
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 2rem;
+  height: fit-content;
+}
+
+.vault-info-section h3 {
+  color: #3b82f6;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.vault-info-section p {
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.vault-details {
+  border-top: 1px solid #333;
+  padding-top: 1.5rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row span:first-child {
+  color: #888;
+}
+
+.detail-row span:last-child {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Action Section - Right Half */
+.vault-action-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.action-tabs {
+  display: flex;
+  background: radial-gradient(
+    circle at center,
+    rgba(18, 22, 69, 0.4) 0%,
+    rgba(10, 13, 40, 0.3) 70%
+  );
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #888;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+  color: #fff;
+  border-bottom-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.tab:hover {
+  color: #fff;
+}
+
+.action-content {
+  background: radial-gradient(
+    circle at center,
+    rgba(18, 22, 69, 0.4) 0%,
+    rgba(10, 13, 40, 0.3) 70%
+  );
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+/* Transaction Status Messages */
+.transaction-status {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid #3b82f6;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.transaction-status p {
+  margin: 0;
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.transaction-error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid #ef4444;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.transaction-error p {
+  margin: 0 0 0.5rem 0;
+  color: #ef4444;
+  font-weight: 500;
+}
+
+.transaction-error button {
+  background: transparent;
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.transaction-error button:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.input-group label {
+  color: #888;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.max-button {
+  background: transparent;
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.max-button:hover {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.amount-input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.amount-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.amount-input::placeholder {
+  color: #555;
+}
+
+.action-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.action-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Vault Not Found */
+.vault-not-found {
+  text-align: center;
+  padding: 3rem;
+}
+
+.vault-not-found h2 {
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .vault-split-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .vault-detail-page {
+    padding: 1rem;
+  }
+
+  .vault-split-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .vault-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .vault-info-section,
+  .action-content {
+    padding: 1.5rem;
+  }
+
+  .input-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .max-button {
+    align-self: flex-end;
+  }
+
+  .transaction-status,
+  .transaction-error {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+}

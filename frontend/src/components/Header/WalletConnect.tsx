@@ -1,25 +1,20 @@
-import React from 'react';
-import { Button } from '../UI';
-import './WalletConnect.css';
+import React from "react";
+import { ConnectKitButton } from "connectkit";
+import { useAccount } from "wagmi";
+import "./WalletConnect.css";
 
-interface WalletConnectProps {
-  onConnect?: () => void;
-  isConnected?: boolean;
-}
+const WalletConnect: React.FC = () => {
+  const { isConnected } = useAccount();
 
-const WalletConnect: React.FC<WalletConnectProps> = ({ 
-  onConnect, 
-  isConnected = false 
-}) => {
   return (
-    <Button 
-      variant="hover-fill"
-      className="wallet-connect"
-      onClick={onConnect}
-    >
-      {isConnected ? 'Connected' : 'Wallet Connect'}
-    </Button>
+    <div className="wallet-connect">
+      <div className="wallet-connect-container">
+        <ConnectKitButton showBalance={true} showAvatar={true} />
+
+        {isConnected && <div className="network-selector"></div>}
+      </div>
+    </div>
   );
 };
 
-export default WalletConnect; 
+export default WalletConnect;
