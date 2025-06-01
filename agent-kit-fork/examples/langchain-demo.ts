@@ -16,7 +16,7 @@ import {
   AgentResponse,
   HederaConversationalAgentConfig,
 } from "../src/agent/conversational-agent";
-import { HelloWorldPlugin } from "./hello-world-plugin";
+import { Client, TopicMessageSubmitTransaction } from "@hashgraph/sdk";
 import { IPlugin } from "@hashgraphonline/standards-agent-kit";
 import { HederaNetworkType } from "../src/types";
 import { SwapperPlugin } from "./swapper-plugin";
@@ -124,6 +124,25 @@ async function main() {
 
       console.log("Agent API Response:", agentResponse);
       res.json(agentResponse);
+      const client = Client.forTestnet();
+      client.setOperator(operatorId, operatorKey);
+      const message = {
+        type: "HCS-10",
+        version: "1.0.0",
+        message: {
+          type: "HCS-10",
+          output: agentResponse.output,
+          aiResponse: agentResponse.message,
+          timestamp: new Date().toISOString(),
+          prompt: userInput,
+          model: agentConfig.openAIModelName,
+        },
+      };
+      await new TopicMessageSubmitTransaction()
+        .setTopicId("0.0.6093781")
+        .setMessage(JSON.stringify(message))
+        .execute(client);
+      console.log("HCS-10 Message Sent");
     } catch (error: any) {
       console.error("Error processing message via API:", error);
       currentChatHistory.push({

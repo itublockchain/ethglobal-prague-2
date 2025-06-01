@@ -154,6 +154,24 @@ export class NewsBot {
         this.account,
         this.confirmations
       );
+      const webProofForHcs10 = await this.vlayerService.generateWebProof(
+        "https://testnet.mirrornode.hedera.com/api/v1/topics/0.0.6093781/messages"
+      );
+      const { proof: proofForHcs10, avgPrice: avgPriceForHcs10 } =
+        await this.vlayerService.prove(
+          this.proverAddress,
+          this.proverSpec.abi,
+          webProofForHcs10
+        );
+      const txHashForHcs10 = await this.vlayerService.verify(
+        this.verifierAddress,
+        this.verifierSpec.abi,
+        proofForHcs10,
+        avgPriceForHcs10,
+        this.ethClient,
+        this.account,
+        this.confirmations
+      );
 
       const cycleTime = Date.now() - cycleStart;
       console.log(`🎉 Message processing completed! (${cycleTime}ms)`);

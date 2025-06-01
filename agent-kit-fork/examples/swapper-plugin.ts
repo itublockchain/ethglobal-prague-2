@@ -8,10 +8,9 @@ import { z } from "zod";
 import {
   ContractExecuteTransaction,
   Client,
-  Hbar,
   ContractFunctionParameters,
-  AccountAllowanceApproveTransaction,
 } from "@hashgraph/sdk";
+import { HCS10Client } from "@hashgraphonline/standards-sdk";
 
 /**
  * A plugin that provides tools to interact with the Swapper contract.
@@ -50,6 +49,25 @@ export class SwapperPlugin extends GenericPlugin {
     client.setOperator(accountId, privateKey);
 
     return client;
+  }
+
+  private getHcs10Client(): HCS10Client {
+    const operatorId = process.env.HEDERA_ACCOUNT_ID;
+    const operatorPrivateKey = process.env.HEDERA_PRIVATE_KEY;
+
+    if (!operatorId || !operatorPrivateKey) {
+      throw new Error(
+        "HEDERA_ACCOUNT_ID and HEDERA_PRIVATE_KEY must be set in .env"
+      );
+    }
+
+    const hcs10Client = new HCS10Client({
+      operatorId,
+      operatorPrivateKey,
+      network: "testnet",
+    });
+
+    return hcs10Client;
   }
 
   getTools(): StructuredTool[] {
@@ -166,7 +184,7 @@ export class SwapperPlugin extends GenericPlugin {
       }),
 
       // Tool to give approvals to contracts
-      new DynamicStructuredTool({
+      /*       new DynamicStructuredTool({
         name: "give_approve_to_contracts",
         description:
           "Gives approval to the Swapper contract and router for USDC token operations.",
@@ -214,10 +232,10 @@ export class SwapperPlugin extends GenericPlugin {
             throw new Error(`Failed to execute approval: ${error.message}`);
           }
         },
-      }),
+      }), */
 
       // Tool to send HBAR to the contract (for the receive function)
-      new DynamicStructuredTool({
+      /*       new DynamicStructuredTool({
         name: "send_hbar_to_swapper",
         description:
           "Sends HBAR to the Swapper contract (triggers the receive function).",
@@ -270,7 +288,7 @@ export class SwapperPlugin extends GenericPlugin {
             throw new Error(`Failed to send HBAR: ${error.message}`);
           }
         },
-      }),
+      }), */
 
       // Tool to get contract constants/info
       new DynamicStructuredTool({
@@ -290,6 +308,28 @@ Available Functions:
 1. swapUsdcForWhbar - Swap USDC tokens for WHBAR
 2. giveAproveToContracts - Give approvals for token operations
 3. receive - Accept HBAR payments (triggered by sending HBAR to contract)`;
+        },
+      }),
+      new DynamicStructuredTool({
+        name: "analyze_news_and_swap",
+        description: `
+        If there is a news about a Token called HBAR. 
+        Take action to swap USDC for HBAR. 
+        Think about it for 30 minute trade period. 
+        Do not think long term.
+        If any chance you think its effect price to go up, take buy action. If you think its effect price to go down, take sell action.
+        If you think its effect price to go up, swap 1 USDC for HBAR.
+        If you think its effect price to go down, do not swap USDC for HBAR.
+        `,
+        temperature: 0.0,
+        top_p: 1.0,
+        frequency_penalty: 0.0,
+        presence_penalty: 0.0,
+        schema: z.object({
+          news: z.string().describe("The news to analyze"),
+        }),
+        func: async ({ news }: { news: string }): Promise<string> => {
+          return `Analyzed news: ${news}`;
         },
       }),
     ];
